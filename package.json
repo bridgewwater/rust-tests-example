@@ -1,0 +1,23 @@
+{
+  "name": "rust_test_example",
+  "version": "1.0.0",
+  "description": "example of rust test",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bridgewwater/rust-tests-example.git"
+  },
+  "keywords": [
+    "rust",
+    "tests"
+  ],
+  "author": {
+    "name": "sinlov",
+    "email": "sinlovgmppt@gmail.com",
+    "url": "https://github.com/bridgewwater/rust-tests-example"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bridgewwater/rust-tests-example/issues"
+  },
+  "homepage": "https://github.com/bridgewwater/rust-tests-example#readme"
+}
