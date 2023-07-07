@@ -1,3 +1,18 @@
+[![GitHub latest SemVer tag)](https://img.shields.io/github/v/tag/bridgewwater/rust-tests-example)](https://github.com/bridgewwater/rust-tests-example/tags)
+[![GitHub release)](https://img.shields.io/github/v/release/bridgewwater/rust-tests-example)](https://github.com/bridgewwater/rust-tests-example/releases)
+
+## Contributing
+
+[![Contributor Covenant](https://img.shields.io/badge/contributor%20covenant-v1.4-ff69b4.svg)](.github/CONTRIBUTING_DOC/CODE_OF_CONDUCT.md)
+[![GitHub contributors](https://img.shields.io/github/contributors/bridgewwater/rust-tests-example)](https://github.com/bridgewwater/rust-tests-example/graphs/contributors)
+
+We welcome community contributions to this project.
+
+Please read [Contributor Guide](.github/CONTRIBUTING_DOC/CONTRIBUTING.md) for more information on how to get started.
+
+请阅读有关 [贡献者指南](.github/CONTRIBUTING_DOC/zh-CN/CONTRIBUTING.md) 以获取更多如何入门的信息
+
+
 ## dependencies
 
 ```bash
