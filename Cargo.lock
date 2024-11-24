@@ -1067,9 +1067,9 @@ checksum = "3369f5ac52d5eb6ab48c6b4ffdc8efbcad6b89c765749064ba298f2c68a16a76"
 
 [[package]]
 name = "testdir"
-version = "0.8.0"
+version = "0.9.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "48b7965698cfb3d1ac1e6e54b4b45f5caa9e89bda223c8cf723d9cf53d7cefa7"
+checksum = "ee79e927b64d193f5abb60d20a0eb56be0ee5a242fdeb8ce3bf054177006de52"
 dependencies = [
  "anyhow",
  "backtrace",
