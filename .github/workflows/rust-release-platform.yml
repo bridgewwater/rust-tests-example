@@ -1,0 +1,116 @@
+name: rust-release-platform
+
+on:
+  workflow_call: # https://docs.github.com/actions/using-workflows/reusing-workflows#using-inputs-and-secrets-in-a-reusable-workflow
+    inputs:
+      version_name:
+        description: 'most of this use tag name'
+        default: ''
+        required: false
+        type: string
+      upload_artifact_name:
+        description: 'upload artifact name'
+        default: ''
+        required: false
+        type: string
+
+env:
+  DIST_BINARY_NAME: rust_playground # to change your binary name, windows will auto add .exe
+
+permissions:
+  contents: write
+
+jobs:
+  rust-release-platform:
+    defaults:
+      run:
+        shell: bash
+    strategy:
+      matrix:
+        # You can add more, for any target you'd like!
+        toolchain:
+          - 'stable'
+          # - 'nightly'
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+        include:
+          - build: linux-gnu
+            os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+
+          - build: macos-x86
+            os: macos-latest
+            target: x86_64-apple-darwin
+
+          - build: windows-gnu
+            os: windows-latest
+            target: x86_64-pc-windows-gnu
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust - ${{ matrix.build }}
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+          targets: ${{ matrix.target }}
+          toolchain: ${{ matrix.toolchain }}
+
+      - name: Run check rust environment
+        run: rustup show
+
+      - name: Run cargo check
+        run: cargo check --all --bins --examples --tests --release
+
+      - name: Run release
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: false
+          command: build
+          args: --verbose --release --target ${{ matrix.target }}
+
+      - name: Build Release binary
+        run: |
+          # Replace with the name of your binary
+          binary_name=${{ env.DIST_BINARY_NAME }}
+
+          dirname="$binary_name-${{ inputs.version_name }}-${{ matrix.target }}"
+          mkdir "$dirname"
+          if [ "${{ matrix.os }}" = "windows-latest" ]; then
+            mv "target/${{ matrix.target }}/release/$binary_name.exe" "$dirname"
+          else
+            mv "target/${{ matrix.target }}/release/$binary_name" "$dirname"
+          fi
+
+          # add more resource to archive
+          # mv doc/cmd.md "$dirname"
+
+          # archive and hash
+          if [ "${{ matrix.os }}" = "windows-latest" ]; then
+            7z a "$dirname.zip" "$dirname"
+            certutil -hashfile "$dirname.zip" SHA256 >> "$dirname.zip.sha256"
+            echo "ASSET=$dirname.zip" >> $GITHUB_ENV
+          else
+            tar -czf "$dirname.tar.gz" "$dirname"
+            shasum -a 256 "$dirname.tar.gz" >> "$dirname.tar.gz.sha256"
+            echo "ASSET=$dirname.tar.gz" >> $GITHUB_ENV
+          fi
+
+      - name: Check Release archive
+       # if: ${{ inputs.tag_name != null }}
+        run: |
+          echo "release archive at: ${{ env.ASSET }}"
+          echo " archive sha256sum at: ${{ env.ASSET }}.sha256"
+
+      - name: upload-artifact
+        uses: actions/upload-artifact@v4
+        if: ${{ inputs.upload_artifact_name != null }}
+        with:
+          name: ${{ inputs.upload_artifact_name }}-${{inputs.version_name}}-${{ matrix.go_os }}-${{ matrix.go_arch }}
+          retention-days: 5
+          if-no-files-found: error
+          path: |
+            ${{ env.ASSET }}
+            ${{ env.ASSET }}.sha256

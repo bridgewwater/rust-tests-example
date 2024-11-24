@@ -20,7 +20,9 @@ pub fn factorial(input: i64) -> i64 {
 
 pub fn factorial_of_str(input: &[u8]) -> Result<i64, &'static str> {
     let string_input = std::str::from_utf8(input).map_err(|_| "input not a valid UTF-8 string")?;
-    let int = string_input.parse().map_err(|_| "input not a valid integer")?;
+    let int = string_input
+        .parse()
+        .map_err(|_| "input not a valid integer")?;
     Ok(factorial(int))
 }
 
@@ -52,7 +54,7 @@ mod tests {
     }
 
     #[test]
-    fn factorial_of_5_is_120(){
+    fn factorial_of_5_is_120() {
         assert_eq!(120, factorial(5));
     }
 

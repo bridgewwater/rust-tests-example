@@ -1,3 +1,11 @@
+
+[![doc.rs](https://img.shields.io/docsrs/rust-tests-example)](https://docs.rs/rust-tests-example)
+[![crates.io version](https://img.shields.io/crates/v/rust-tests-example)](https://crates.io/crates/rust-tests-example)
+[![crates.io download latest](https://img.shields.io/crates/dv/rust-tests-example.svg)](https://crates.io/crates/rust-tests-example)
+[![crates.io license](https://img.shields.io/crates/l/rust-tests-example)](https://crates.io/crates/rust-tests-example)
+[![deps.rs dependency](https://deps.rs/crate/rust-tests-example/latest/status.svg)](https://deps.rs/repo/github/rust-tests-example/latest)
+
+[![GitHub license](https://img.shields.io/github/license/bridgewwater/rust-tests-example)](https://github.com/bridgewwater/rust-tests-example)
 [![GitHub latest SemVer tag)](https://img.shields.io/github/v/tag/bridgewwater/rust-tests-example)](https://github.com/bridgewwater/rust-tests-example/tags)
 [![GitHub release)](https://img.shields.io/github/v/release/bridgewwater/rust-tests-example)](https://github.com/bridgewwater/rust-tests-example/releases)
 
@@ -11,7 +19,6 @@ We welcome community contributions to this project.
 Please read [Contributor Guide](.github/CONTRIBUTING_DOC/CONTRIBUTING.md) for more information on how to get started.
 
 请阅读有关 [贡献者指南](.github/CONTRIBUTING_DOC/zh-CN/CONTRIBUTING.md) 以获取更多如何入门的信息
-
 
 ## dependencies
 
