@@ -1,3 +1,4 @@
+[![ci](https://github.com/bridgewwater/rust-tests-example/actions/workflows/ci.yml/badge.svg)](https://github.com/bridgewwater/rust-tests-example/actions/workflows/ci.yml)
 
 [![doc.rs](https://img.shields.io/docsrs/rust-tests-example)](https://docs.rs/rust-tests-example)
 [![crates.io version](https://img.shields.io/crates/v/rust-tests-example)](https://crates.io/crates/rust-tests-example)
