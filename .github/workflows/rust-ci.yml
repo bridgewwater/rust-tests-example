@@ -31,7 +31,8 @@ jobs:
       matrix:
         # You can add more, for any target you'd like!
         toolchain:
-          - 'stable'
+          # - 'stable'
+          - '1.79.0'
           # - 'nightly'
         os:
           - ubuntu-latest

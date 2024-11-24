@@ -21,6 +21,10 @@ Please read [Contributor Guide](.github/CONTRIBUTING_DOC/CONTRIBUTING.md) for mo
 
 请阅读有关 [贡献者指南](.github/CONTRIBUTING_DOC/zh-CN/CONTRIBUTING.md) 以获取更多如何入门的信息
 
+## env
+
+- rust version `1.79.0`
+
 ## dependencies
 
 ```bash
