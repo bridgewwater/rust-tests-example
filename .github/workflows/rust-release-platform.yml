@@ -15,7 +15,7 @@ on:
         type: string
 
 env:
-  DIST_BINARY_NAME: rust_playground # to change your binary name, windows will auto add .exe
+  DIST_BINARY_NAME: rust_tests_example # to change your binary name, windows will auto add .exe
 
 permissions:
   contents: write
@@ -108,7 +108,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: ${{ inputs.upload_artifact_name != null }}
         with:
-          name: ${{ inputs.upload_artifact_name }}-${{inputs.version_name}}-${{ matrix.go_os }}-${{ matrix.go_arch }}
+          name: ${{ inputs.upload_artifact_name }}-${{inputs.version_name}}-${{ matrix.os }}-${{ matrix.target }}
           retention-days: 5
           if-no-files-found: error
           path: |
