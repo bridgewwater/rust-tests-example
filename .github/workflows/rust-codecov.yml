@@ -64,6 +64,6 @@ jobs:
 
       - name: Upload to codecov
         if: matrix.version == 'stable' && (github.ref == 'refs/heads/main' || github.event_name == 'push')
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           file: cobertura.xml
