@@ -23,7 +23,7 @@ Please read [Contributor Guide](.github/CONTRIBUTING_DOC/CONTRIBUTING.md) for mo
 
 ## env
 
-- rust version `1.79.0`
+- rust version `1.82.0`
 
 ## dependencies
 
