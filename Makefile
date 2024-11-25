@@ -18,17 +18,21 @@ depCheck:
 .PHONY: dep
 dep: depCheck
 
-depLintFmt:
+.PHONY: dep.lint.fmt
+dep.lint.fmt:
 	cargo fmt --all -- --check
 
-depLintFmtEmitAllFiles:
+.PHONY: dep.lint.fmt.emit.all.files
+dep.lint.fmt.emit.all.files:
 	cargo fmt --all -- --emit files
 	$(info can change to: cargo fmt -- --emit files|stdout)
 
-depLintChecksPackageMistakes:
+.PHONY: dep.lint.check.package.mistakes
+dep.lint.check.package.mistakes:
 	cargo clippy -- -D warnings
 
-style: depLintFmt depLintChecksPackageMistakes
+.PHONY: style
+style: dep.lint.fmt dep.lint.check.package.mistakes
 
 .PHONY: run
 run:
@@ -100,17 +104,21 @@ ci: style testAll
 
 .PHONY: test.coverage.html
 test.coverage.html:
+	$(info use: https://github.com/xd009642/tarpaulin)
 	$(info if run error install as: cargo install cargo-tarpaulin)
 	cargo tarpaulin --all-features --out Html
 
 .PHONY: test.coverage.stdout
 test.coverage.stdout:
+	$(info use: https://github.com/xd009642/tarpaulin)
 	$(info if run error install as: cargo install cargo-tarpaulin)
 	cargo tarpaulin --all-features --out Stdout
 
 .PHONY: ci.coverage
 ci.coverage: ci test.coverage.stdout
 
+.PHONY: all
+all: dep ci ci.coverage clean
 
 .PHONY: helpProjectRoot
 helpProjectRoot:
@@ -122,6 +130,8 @@ helpProjectRoot:
 	@echo "~> make testAll              - run test fast"
 	@echo "~> make ci                   - run CI tasks"
 	@echo "~> make ci.coverage          - run CI coverage"
+	@echo ""
+	@echo "~> make all                  - run commonly used"
 	@echo ""
 
 .PHONY: help
