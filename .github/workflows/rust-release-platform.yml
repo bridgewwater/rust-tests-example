@@ -65,9 +65,10 @@ jobs:
         run: cargo check --all --bins --examples --tests --release
 
       - name: Run release
-        uses: actions-rs/cargo@v1
+        uses: ClementTsang/cargo-action@v0.0.6
         with:
           use-cross: false
+          # cross-version: 0.2.4
           command: build
           args: --verbose --release --target ${{ matrix.target }}
 
