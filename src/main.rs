@@ -3,6 +3,7 @@ include!("pkg_json/npm_config_define.rs");
 use human_panic::setup_panic;
 use serde_derive::{Deserialize, Serialize};
 
+#[cfg(not(tarpaulin_include))]
 fn main() {
     setup_panic!();
     let pkg_json_bytes = include_bytes!("../package.json");

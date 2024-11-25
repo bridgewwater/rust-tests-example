@@ -58,6 +58,12 @@ mod tests {
         assert_eq!(120, factorial(5));
     }
 
+    #[test]
+    fn factorial_of_str_5_is_120() {
+        let result = factorial_of_str("5".as_bytes());
+        assert_eq!(result, Ok(120));
+    }
+
     // Uses the quickcheck crate for property-based tests
     // https://github.com/BurntSushi/quickcheck
     //

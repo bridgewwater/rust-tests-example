@@ -71,6 +71,7 @@ pub enum Author {
 // }
 
 impl Default for Author {
+    #[cfg(not(tarpaulin_include))]
     fn default() -> Self {
         Author::Name(String::default())
     }

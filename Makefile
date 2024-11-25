@@ -4,6 +4,13 @@
 clean:
 	@cargo clean
 
+.PHONY: clean.out.tarpaulin
+clean.out.tarpaulin:
+	-@$(RM) -f cobertura.xml
+	-@$(RM) -f tarpaulin-report.json
+	-@$(RM) -f tarpaulin-report.html
+	-@$(RM) -f lcov.info
+
 .PHONY: depCheck
 depCheck:
 	@cargo check --all --bins --examples --tests
@@ -91,6 +98,20 @@ benchLib:
 .PHONY: ci
 ci: style testAll
 
+.PHONY: test.coverage.html
+test.coverage.html:
+	$(info if run error install as: cargo install cargo-tarpaulin)
+	cargo tarpaulin --all-features --out Html
+
+.PHONY: test.coverage.stdout
+test.coverage.stdout:
+	$(info if run error install as: cargo install cargo-tarpaulin)
+	cargo tarpaulin --all-features --out Stdout
+
+.PHONY: ci.coverage
+ci.coverage: ci test.coverage.stdout
+
+
 .PHONY: helpProjectRoot
 helpProjectRoot:
 	@echo "Help: Project root Makefile"
@@ -100,6 +121,7 @@ helpProjectRoot:
 	@echo ""
 	@echo "~> make testAll              - run test fast"
 	@echo "~> make ci                   - run CI tasks"
+	@echo "~> make ci.coverage          - run CI coverage"
 	@echo ""
 
 .PHONY: help
