@@ -1,10 +1,5 @@
 [![ci](https://github.com/bridgewwater/rust-tests-example/actions/workflows/ci.yml/badge.svg)](https://github.com/bridgewwater/rust-tests-example/actions/workflows/ci.yml)
 
-[![doc.rs](https://img.shields.io/docsrs/rust-tests-example)](https://docs.rs/rust-tests-example)
-[![crates.io version](https://img.shields.io/crates/v/rust-tests-example)](https://crates.io/crates/rust-tests-example)
-[![crates.io download latest](https://img.shields.io/crates/dv/rust-tests-example.svg)](https://crates.io/crates/rust-tests-example)
-[![crates.io license](https://img.shields.io/crates/l/rust-tests-example)](https://crates.io/crates/rust-tests-example)
-[![deps.rs dependency](https://deps.rs/crate/rust-tests-example/latest/status.svg)](https://deps.rs/repo/github/bridgewwater/rust-tests-example/latest)
 [![deps.rs dependency](https://deps.rs/repo/github/bridgewwater/rust-tests-example/status.svg)](https://deps.rs/repo/github/bridgewwater/rust-tests-example)
 
 [![GitHub license](https://img.shields.io/github/license/bridgewwater/rust-tests-example)](https://github.com/bridgewwater/rust-tests-example)
