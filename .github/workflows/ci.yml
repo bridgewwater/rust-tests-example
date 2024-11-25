@@ -68,7 +68,7 @@ jobs:
     secrets: inherit
     with:
       version_name: ${{ needs.version.outputs.tag_name }}
-      upload_artifact_name: rust-release
+      # upload_artifact_name: rust-release
 
   rust-codecov-main:
     name: rust-codecov-main
@@ -92,4 +92,4 @@ jobs:
       prerelease: true
       tag_name: ${{ needs.version.outputs.tag_name }}
       tag_changes: ${{ needs.version.outputs.cc_changes }}
-      download_artifact_name: rust-release
+      # download_artifact_name: rust-release
