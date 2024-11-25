@@ -1,6 +1,7 @@
 [![ci](https://github.com/bridgewwater/rust-tests-example/actions/workflows/ci.yml/badge.svg)](https://github.com/bridgewwater/rust-tests-example/actions/workflows/ci.yml)
 
 [![deps.rs dependency](https://deps.rs/repo/github/bridgewwater/rust-tests-example/status.svg)](https://deps.rs/repo/github/bridgewwater/rust-tests-example)
+[![codecov](https://codecov.io/gh/bridgewwater/rust-tests-example/branch/main/graph/badge.svg)](https://codecov.io/gh/bridgewwater/rust-tests-example)
 
 [![GitHub license](https://img.shields.io/github/license/bridgewwater/rust-tests-example)](https://github.com/bridgewwater/rust-tests-example)
 [![GitHub latest SemVer tag)](https://img.shields.io/github/v/tag/bridgewwater/rust-tests-example)](https://github.com/bridgewwater/rust-tests-example/tags)

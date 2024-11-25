@@ -70,6 +70,15 @@ jobs:
       version_name: ${{ needs.version.outputs.tag_name }}
       upload_artifact_name: rust-release
 
+  rust-codecov-main:
+    name: rust-codecov-main
+    needs:
+      - version
+      - rust-ci
+    if: ${{ ( github.event_name == 'push' && github.ref == 'refs/heads/main' ) || github.base_ref == 'main' }}
+    uses: ./.github/workflows/rust-codecov.yml
+    secrets: inherit
+
   deploy-tag:
     needs:
       - version
