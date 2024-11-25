@@ -10,12 +10,20 @@ updates:
     schedule:
       interval: "monthly"
       day: "sunday"
+    commit-message:
+      prefix: "build(action)"
+      prefix-development: "build(action-dev)"
+      # include: "scope"
     open-pull-requests-limit: 10
   - package-ecosystem: "cargo"
     directory: "/"
     schedule:
       interval: "monthly"
       day: "sunday"
+    commit-message:
+      prefix: "build(action)"
+      prefix-development: "build(action-dev)"
+      # include: "scope"
     open-pull-requests-limit: 10
 #    ignore:
 #    - dependency-name: foo
