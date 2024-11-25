@@ -32,7 +32,7 @@ jobs:
         # You can add more, for any target you'd like!
         toolchain:
           - 'stable'
-          # - '1.82.0'
+          - '1.82.0'
           # - 'nightly'
         os:
           - ubuntu-latest
