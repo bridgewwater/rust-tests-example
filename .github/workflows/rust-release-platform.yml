@@ -65,7 +65,7 @@ jobs:
         run: cargo check --all --bins --examples --tests --release
 
       - name: Run release
-        uses: ClementTsang/cargo-action@v0.0.6
+        uses: ClementTsang/cargo-action@v0.0.7
         with:
           use-cross: false
           # cross-version: 0.2.4
