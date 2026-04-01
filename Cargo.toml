@@ -14,7 +14,7 @@ serde_json = "1.0.149"
 serde_with = "3.17.0"
 
 [dev-dependencies]
-assert_cmd = "2.1.2"
+assert_cmd = "2.2.0"
 criterion = "0.8.2"
 quickcheck = "1.0.3"
 quickcheck_macros = "1.2.0"
