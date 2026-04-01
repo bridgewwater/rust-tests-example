@@ -18,7 +18,7 @@ assert_cmd = "2.2.0"
 criterion = "0.8.2"
 quickcheck = "1.0.3"
 quickcheck_macros = "1.2.0"
-testdir = "0.9.3"
+testdir = "0.10.0"
 
 [lints.rust]
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(tarpaulin_include)'] }
