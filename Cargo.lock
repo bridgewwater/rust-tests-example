@@ -175,7 +175,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6798148dccfbff0fae41c7574d2fa8f1ef3492fba0face179de5d8d447d67b05"
 dependencies = [
  "memchr",
- "regex-automata",
+ "regex-automata 0.3.0",
  "serde",
 ]
 
@@ -454,13 +454,23 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7fcaabb2fef8c910e7f4c7ce9f67a1283a1715879a7c230ca9d6d1ae31f16d91"
 
 [[package]]
-name = "env_logger"
-version = "0.8.4"
+name = "env_filter"
+version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a19187fea3ac7e84da7dacf48de0c45d63c6a76f9490dae389aead16c243fce3"
+checksum = "900d271a03799a1ee8d1ca9b19893b48ca674a9284fefcfb85f05e74ed314217"
 dependencies = [
  "log",
  "regex",
+]
+
+[[package]]
+name = "env_logger"
+version = "0.11.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "de671bd27a75a797dc9ae289ba1e77276e75e2026408aab65185384e2d5cd3f6"
+dependencies = [
+ "env_filter",
+ "log",
 ]
 
 [[package]]
@@ -481,25 +491,26 @@ dependencies = [
 
 [[package]]
 name = "getrandom"
-version = "0.2.10"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "be4136b2a15dd319360be1c07d9933517ccf0be8f16bf62a3bee4f0d618df427"
-dependencies = [
- "cfg-if",
- "libc",
- "wasi 0.11.0+wasi-snapshot-preview1",
-]
-
-[[package]]
-name = "getrandom"
 version = "0.3.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "899def5c37c4fd7b2664648c28120ecec138e4d395b459e5ca34f9cce2dd77fd"
 dependencies = [
  "cfg-if",
  "libc",
- "r-efi",
+ "r-efi 5.3.0",
  "wasip2",
+]
+
+[[package]]
+name = "getrandom"
+version = "0.4.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "300e883d756b2e4ec94e02791f39b04b522276138852cfc41d9fb7e904106099"
+dependencies = [
+ "cfg-if",
+ "libc",
+ "r-efi 6.0.0",
+ "rand_core",
 ]
 
 [[package]]
@@ -662,15 +673,15 @@ dependencies = [
 
 [[package]]
 name = "log"
-version = "0.4.19"
+version = "0.4.33"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b06a4cde4c0f271a446782e3eff8de789548ce57dbc8eca9292c27f4a42004b4"
+checksum = "0ceec5bc11778974d1bcb055b18002eba7f4b3518b6a0081b3af5f21666da9ad"
 
 [[package]]
 name = "memchr"
-version = "2.5.0"
+version = "2.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2dffe52ecf27772e601905b7522cb4ef790d2cc203488bbd0e2fe85fcb74566d"
+checksum = "88904434abc2901f197fe8cc55f0445e7ded921dba5911dad2e2b39b48e663c4"
 
 [[package]]
 name = "memoffset"
@@ -856,9 +867,9 @@ dependencies = [
 
 [[package]]
 name = "quickcheck"
-version = "1.0.3"
+version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "588f6378e4dd99458b60ec275b4477add41ce4fa9f64dcba6f15adccb19b50d6"
+checksum = "95c589f335db0f6aaa168a7cd27b1fc6920f5e1470c804f814d9cd6e62a0f70b"
 dependencies = [
  "env_logger",
  "log",
@@ -892,22 +903,26 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "69cdb34c158ceb288df11e18b4bd39de994f6657d83847bdffdbd7f346754b0f"
 
 [[package]]
-name = "rand"
-version = "0.8.5"
+name = "r-efi"
+version = "6.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "34af8d1a0e25924bc5b7c43c079c942339d8f0a8b57c39049bef581b46327404"
+checksum = "f8dcc9c7d52a811697d2151c701e0d08956f92b0e24136cf4cf27b57a6a0d9bf"
+
+[[package]]
+name = "rand"
+version = "0.10.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d2e8e8bcc7961af1fdac401278c6a831614941f6164ee3bf4ce61b7edb162207"
 dependencies = [
+ "getrandom 0.4.3",
  "rand_core",
 ]
 
 [[package]]
 name = "rand_core"
-version = "0.6.4"
+version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c"
-dependencies = [
- "getrandom 0.2.10",
-]
+checksum = "63b8176103e19a2643978565ca18b50549f6101881c443590420e4dc998a3c69"
 
 [[package]]
 name = "rayon"
@@ -953,13 +968,13 @@ dependencies = [
 
 [[package]]
 name = "regex"
-version = "1.9.0"
+version = "1.12.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "89089e897c013b3deb627116ae56a6955a72b8bed395c9526af31c9fe528b484"
+checksum = "f1292b7759ae1cb9ec195452d1390a074f0cd8541ab7a5a8c31cd6db45d4a6ba"
 dependencies = [
  "aho-corasick",
  "memchr",
- "regex-automata",
+ "regex-automata 0.4.14",
  "regex-syntax",
 ]
 
@@ -968,6 +983,12 @@ name = "regex-automata"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fa250384981ea14565685dea16a9ccc4d1c541a13f82b9c168572264d1df8c56"
+
+[[package]]
+name = "regex-automata"
+version = "0.4.14"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6e1dd4122fc1595e8162618945476892eefca7b88c52820e74af6262213cae8f"
 dependencies = [
  "aho-corasick",
  "memchr",
@@ -976,9 +997,9 @@ dependencies = [
 
 [[package]]
 name = "regex-syntax"
-version = "0.7.3"
+version = "0.8.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2ab07dc67230e4a4718e70fd5c20055a4334b121f1f9db8fe63ef39ce9b8c846"
+checksum = "d6f6ff9a378485b298a5286656da665ba74413d36db0979633275d2e708145d4"
 
 [[package]]
 name = "rust_tests_example"
@@ -1353,12 +1374,6 @@ dependencies = [
 
 [[package]]
 name = "wasi"
-version = "0.11.0+wasi-snapshot-preview1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9c8d87e72b64a3b4db28d11ce29237c246188f4f51057d65a7eab63b7987e423"
-
-[[package]]
-name = "wasi"
 version = "0.14.7+wasi-0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "883478de20367e224c0090af9cf5f9fa85bed63a95c1abf3afc5c083ebc06e8c"
@@ -1381,7 +1396,7 @@ version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "66fe902b4a6b8028a753d5424909b764ccf79b7a209eac9bf97e59cda9f71a42"
 dependencies = [
- "wasi 0.14.7+wasi-0.2.4",
+ "wasi",
 ]
 
 [[package]]
